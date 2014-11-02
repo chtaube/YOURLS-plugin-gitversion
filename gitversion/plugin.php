@@ -34,8 +34,14 @@ function chtaube_add_git_version( $value ) {
 			return $value;
 		}
 
-		$line= explode( "\n", $filestring, 3 );
+		$line = explode( "\n", $filestring, 3 );
 
+		/* regular expressions for dummies:
+		 * 1st group: (.+) -- tag name; given by upstream developers
+		 * 2nd group: ([0-9]+) -- number of commits ahead
+		 * 3rd group: g([0-9a-f]+) -- abbreviated SHA1 of latest commit, prefixed by 'g'
+		 * (see http://www.git-scm.com/docs/git-describe for info about the 'g'-prefix)
+		 */
 		$gitversion = preg_filter( '/^(.+)-([0-9]+)-g([0-9a-f]+)$/', '$1-git-$2.$3', $line[0]);
 		// Check if preg_filter() failed
 		if ( is_null( $gitversion ) ) {
