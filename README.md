@@ -34,22 +34,19 @@ which is *80 commits* in the future of [version tag
 Currently, the plugin does not execute `git describe` directly, but depends on
 a `version` file that is being updated on each checkout or commit by a Git
 hook. Some simple hook files are included in the `git-hooks/` directory. Just
-copy them into `.git/hooks/` of your YOURLS installation.
-
-If you already have your own hooks file, add this line to your existing
-file:
-
-	git describe --long > $GIT_DIR/version
+copy them into `.git/hooks/` of your YOURLS installation and make them
+executable (on POSIX like systems: `chmod +x
+.git/hooks/post-{commit,checkout}`.
 
 
 ## Plugin installation
 
-Copy the plugin directory `gitversion/` to your YOURLS plugin directory
-`user/plugins/`. The result would look like
-`user/plugins/gitversion/plugin.php`.
+Copy the directory `gitversion/` from this repository to your YOURLS plugin
+directory `user/plugins/` (as a result the YOURLS-directory
+`user/plugins/gitversion` should show the file `plugin.php`).
 
 Go to the admin panel and activate the plugin *Git Version*.
 
-Please note, the `version` file will be written on the next checkout or commit.
-Before that, the plugin simply tell you that it is missing the file.
+Please note, the `version` file will be written on the next *checkout* or
+*commit*.  Before that, the plugin simply tell you that it is missing the file.
 
