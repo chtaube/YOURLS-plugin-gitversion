@@ -1,4 +1,4 @@
 #!/bin/sh
 
-git describe --long > $GIT_DIR/version
+git describe --long --tags --always > $GIT_DIR/version
 git describe --all >> $GIT_DIR/version
