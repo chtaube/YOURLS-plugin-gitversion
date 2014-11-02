@@ -36,7 +36,7 @@ function chtaube_add_git_version( $value ) {
 
 		$line= explode( "\n", $filestring, 3 );
 
-		$gitversion = preg_filter( '/^(.+)-([0-9]+)-g([0-9a-f]+)$/', 'v $1-git-$2.$3', $line[0]);
+		$gitversion = preg_filter( '/^(.+)-([0-9]+)-g([0-9a-f]+)$/', '$1-git-$2.$3', $line[0]);
 		// Check if preg_filter() failed
 		if ( is_null( $gitversion ) ) {
 			$value = $value . '<br>Git repository detected, but did not understand version information.';
@@ -46,7 +46,7 @@ function chtaube_add_git_version( $value ) {
 		// Do we have a git ref to add?
 		if ( ( count( $line) >= 2 ) and ( $line[1] != "" ) ) {
 			$gitrefs = $line[1];
-			$value = $value . " on " . $gitrefs;
+			$value = $value . " (" . $gitrefs . ")";
 		}
 	} else {
 		// No version file -> fail gracefully.
