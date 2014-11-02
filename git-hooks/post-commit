@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git describe --long > $GIT_DIR/version
