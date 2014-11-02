@@ -36,7 +36,7 @@ a `version` file that is being updated on each checkout or commit by a Git
 hook. Some simple hook files are included in the `git-hooks/` directory. Just
 copy them into `.git/hooks/` of your YOURLS installation and make them
 executable (on POSIX like systems: `chmod +x
-.git/hooks/post-{commit,checkout}`.
+.git/hooks/post-{commit,checkout}`).
 
 
 ## Plugin installation
@@ -48,5 +48,5 @@ directory `user/plugins/` (as a result the YOURLS-directory
 Go to the admin panel and activate the plugin *Git Version*.
 
 Please note, the `version` file will be written on the next *checkout* or
-*commit*.  Before that, the plugin simply tell you that it is missing the file.
+*commit*.  Before that, the plugin will simply tell you that it is missing the file.
 
