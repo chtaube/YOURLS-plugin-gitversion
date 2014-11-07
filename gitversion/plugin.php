@@ -16,16 +16,16 @@ yourls_add_filter( 'html_footer_text', 'chtaube_add_git_version' );
 
 function chtaube_add_git_version( $value ) {
 	/*
-	* Check if we are really under git version control. Otherwise exit silently.
-	*/
+	 * Check if we are really under git version control. Otherwise exit silently.
+	 */
 	if ( ! file_exists( YOURLS_ABSPATH . '/.git' ) ) {
 		return $value;
 	}
 
 	/*
-	* Look for the version string within the .git/version file.
-	* Please note that you have to add git hooks for this to work!
-	*/
+	 * Look for the version string within the .git/version file.
+	 * Please note that you have to add git hooks for this to work!
+	 */
 	if ( file_exists( YOURLS_ABSPATH . '/.git/version' ) ) {
 
 		$filestring = file_get_contents( YOURLS_ABSPATH . '/.git/version', false, NULL, -1, 200);
